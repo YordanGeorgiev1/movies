@@ -1,0 +1,67 @@
+@use '../../globalStyles/styles.scss';
+
+.header {
+  background-color: styles.$gray;
+  height: 150px;
+  ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    li {
+      cursor: pointer;
+      margin-top: 40px;
+    }
+  }
+  a {
+    color: styles.$blue;
+    text-decoration: none;
+  }
+}
+
+a.active {
+  color: white;
+}
+
+.header-logo {
+  @include styles.flexPosition;
+  justify-content: space-between;
+  width: 90%;
+  padding-top: 10px;
+  margin: auto;
+  a {
+    color: black;
+    font-size: 20px;
+  }
+  p {
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  img {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 250px;
+    ul {
+      padding: 10px;
+      width: 300px;
+      margin: auto;
+      flex-direction: column;
+      text-align: center;
+      li {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .header-logo {
+    width: 95%;
+  }
+}

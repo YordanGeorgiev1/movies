@@ -1,0 +1,65 @@
+@use '../../globalStyles/styles.scss';
+
+.overlay {
+  padding-top: 50px;
+  margin-top: 20px;
+  .requestError {
+    color: red;
+    text-align: center;
+  }
+  .form {
+    width: 470px;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    background-color: styles.$gray;
+    img {
+      margin-top: 30px;
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+    }
+    span {
+      color: styles.$blue;
+      cursor: pointer;
+    }
+    h2 {
+      font-size: 30px;
+      margin: 5px;
+    }
+    p {
+      margin: 5px;
+    }
+  }
+}
+
+.userInput {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: auto;
+  .input {
+    margin: 5px;
+    height: 20px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+  }
+  .inputError {
+    background-color: rgb(250, 239, 241);
+    border: 1px solid red;
+  }
+  .login-btn {
+    width: 100px;
+    height: 30px;
+    margin: 20px auto;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+  }
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+}

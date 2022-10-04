@@ -1,0 +1,7 @@
+$blue: blue;
+$gray: rgb(171, 171, 171);
+
+@mixin flexPosition {
+    display: flex;
+    align-items: center;
+}
