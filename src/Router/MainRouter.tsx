@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "../components/homepage/HomePage";
 import Login from "../components/login/Login";
 import Movies from "../components/movies/Movies";
+import UserProfile from "../components/profile/UserProfile";
 import SignUp from "../components/signUp/SignUp";
 import SingleMovie from "../components/single-movie/SingleMovie";
 import AuthContext from "../store/auth-context";
@@ -18,6 +19,7 @@ const MainRouter = () => {
       {!authCtx.isLoggedIn && <Route path="/signUp" element={<SignUp />}/>}
       {authCtx.isLoggedIn && <Route path="/:categoryId" element={<Movies />} />}
       {authCtx.isLoggedIn && <Route path="/:categoryId/:movieId" element={<SingleMovie />} />}
+      {authCtx.isLoggedIn && <Route path="/profile" element={<UserProfile />} />}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </div>

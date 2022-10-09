@@ -1,3 +1,9 @@
+@use '../../globalStyles/styles.scss';
+
 .heading {
   text-align: center;
+}
+
+.error {
+  @include styles.errorMessage
 }

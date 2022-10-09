@@ -50,20 +50,25 @@ const Login = () => {
       password: enteredPassword,
       returnSecureToken: true
     };
-
+    setError(null);
     axios.post(
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBi5q3iwL2zYl2WUsGeHOQ3RcwbpfkOMUM',
        userData)
-      .then((res) => authCtx.login(res.data.idToken))
-      .catch((error) => setError(error.response.data.error.message));
-      resetEmailInput();
-      resetPasswordInput();
-      navigate('/');
+      .then((res) => {
+        authCtx.login(res.data.idToken)
+        resetEmailInput();
+        resetPasswordInput();
+        navigate('/');
+      })
+      .catch((error) => {
+        setError(error.response.data.error.message);
+        return;
+      });
   };
 
   return (
     <div className={style.overlay}>
-      {error && <p className={style.requestError}>{error}</p>}
+      {error && <h2 className={style.requestError}>{error}</h2>}
       <form onSubmit={submitHandler} className={style.form}>
         <img src="/assets/movies-1.jpeg" alt="logo" />
         <h2>Log in to your account</h2>
@@ -87,7 +92,7 @@ const Login = () => {
             onBlur={passwordBlurHandler}
             placeholder="Password"
           />
-          {passwordHasError && <p className={style.error}>Password must be at least five characters long</p>}
+          {passwordHasError && <p className={style.error}>Password must be at least six characters long</p>}
           <button className={style["login-btn"]}>Login</button>
         </div>
       </form>

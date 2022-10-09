@@ -16,6 +16,7 @@ export interface MovieInterface {
   director?: string;
   stars?: string[];
   poster: string;
+  trailer?: string
 }
 
 export type Props = {

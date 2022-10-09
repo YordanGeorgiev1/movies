@@ -1,7 +1,13 @@
 $blue: blue;
 $gray: rgb(171, 171, 171);
+$red: red;
 
 @mixin flexPosition {
     display: flex;
     align-items: center;
+}
+
+@mixin errorMessage {
+    color: $red;
+    text-align: center;
 }

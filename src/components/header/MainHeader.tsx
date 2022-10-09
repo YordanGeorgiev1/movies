@@ -15,8 +15,9 @@ const MainHeader = () => {
     <header className={style.header}>
       <nav>
         <div className={style["header-logo"]}>
-          <img onClick={backToHomepage} src="/assets/movies-1.jpeg" alt="logo"/>
+          <img data-testid="home-btn" onClick={backToHomepage} src="/assets/movies-1.jpeg" alt="logo"/>
           {!authCtx.isLoggedIn && <NavLink className={style.log} to="/login">Sign up/Log in</NavLink>}
+          {authCtx.isLoggedIn && <NavLink className={style.log} to="/profile">Profile</NavLink>}
           {authCtx.isLoggedIn && <NavLink onClick={authCtx.logout} className={style.log} to="/">Logout</NavLink>}
         </div>
         {authCtx.isLoggedIn &&

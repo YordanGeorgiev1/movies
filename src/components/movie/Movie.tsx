@@ -17,8 +17,8 @@ const Movie: FC<MovieInterface> = (props) => {
      } 
   };
   return (
-    <div className={style.content}>
-          <a onClick={singleMovieHandler}>
+    <div data-testid='movie' className={style.content}>
+          <a data-testid='link' onClick={singleMovieHandler}>
             <img src={props.poster} alt="logo"/>
             <p>{props.title} {props.year}</p>
           </a>

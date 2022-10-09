@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import AuthInterface, { Props } from '../interfaces/models';
 
-
-
 const AuthContext = React.createContext<AuthInterface>({
     token: '',
     isLoggedIn: false,

@@ -63,7 +63,7 @@ const SignUp = () => {
 
   return (
     <div className={style.overlay}>
-      {error && <p className={style.requestError}>{error}</p>}
+      {error && <h2 className={style.requestError}>{error}</h2>}
       <form onSubmit={submitHandler} className={style.form}>
         <img src="/assets/movies-1.jpeg" alt="logo" />
         <h2>Sign Up</h2>

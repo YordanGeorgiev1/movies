@@ -1,0 +1,5 @@
+@use '../../globalStyles/styles.scss';
+
+.error {
+    @include styles.errorMessage
+}

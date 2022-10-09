@@ -4,8 +4,7 @@
   padding-top: 50px;
   margin-top: 20px;
   .requestError {
-    color: red;
-    text-align: center;
+    @include styles.errorMessage
   }
   .form {
     width: 470px;
@@ -59,7 +58,7 @@
     cursor: pointer;
   }
   .error {
-    color: red;
+    @include styles.errorMessage;
     font-size: 12px;
   }
 }
