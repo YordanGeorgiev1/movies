@@ -52,7 +52,7 @@ const ChangeEmail = () => {
     <Fragment>
       {error && <h2 className={style.requestError}>{error}</h2>}
       <form onSubmit={submitHandler} className={style.form}>
-        <h2>Change Email</h2>
+        <h2>New Email</h2>
         <input
           className={emailHasError ? `${style.input} ${style.inputError}` : style.input}
           value={enteredEmail}

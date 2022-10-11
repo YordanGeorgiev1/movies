@@ -52,7 +52,7 @@ const ChangePassword = () => {
     <Fragment>
       {error && <h2 className={style.requestError}>{error}</h2>}
       <form onSubmit={submitHandler} className={style.form}>
-        <h2>Change Password</h2>
+        <h2>New Password</h2>
         <input
           className={passwordHasError ? `${style.input} ${style.inputError}` : style.input}
           type="password"
