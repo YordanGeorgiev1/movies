@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import ChangeEmail from "../components/changeEmail/ChangeEmail";
+import ChangePassword from "../components/changePassword/ChangePassword";
 import HomePage from "../components/homepage/HomePage";
 import Login from "../components/login/Login";
 import Movies from "../components/movies/Movies";
@@ -20,6 +22,8 @@ const MainRouter = () => {
       {authCtx.isLoggedIn && <Route path="/:categoryId" element={<Movies />} />}
       {authCtx.isLoggedIn && <Route path="/:categoryId/:movieId" element={<SingleMovie />} />}
       {authCtx.isLoggedIn && <Route path="/profile" element={<UserProfile />} />}
+      {authCtx.isLoggedIn && <Route path="/changeEmail" element={<ChangeEmail />} />}
+      {authCtx.isLoggedIn && <Route path="/changePassword" element={<ChangePassword />} />}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     </div>

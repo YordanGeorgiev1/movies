@@ -1,0 +1,36 @@
+@use '../../globalStyles/styles.scss';
+
+.overlay {
+    @include styles.flexPosition;
+    justify-content: center;
+    height: 40vh;
+    .container {
+        width: 300px;
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        text-align: center;
+        .link {
+            border-bottom:  1px solid black;
+        }
+        h2 {
+            margin: 0;
+            padding: 15px;
+            border-bottom: 1px solid black;
+        }
+        a {
+            display: block;
+            text-decoration: none;
+            padding: 7px;
+        }
+        a:active {
+            color: black;
+        }
+        a:visited {
+            color: black;
+        }
+        a:hover {
+            color: white;
+            background-color: styles.$blue;
+        }
+    }    
+}
