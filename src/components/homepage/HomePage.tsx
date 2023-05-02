@@ -1,8 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import axios, { AxiosError } from "axios";
+
 import { MovieInterface } from "../../interfaces/models";
 import style from './HomePage.module.scss';
 import Movie from "../movie/Movie";
-import axios, { AxiosError } from "axios";
 
 const HomePage = () => {
   const [displayMovies, setDisplayMovies] = useState<MovieInterface[]>([]);
@@ -24,12 +25,12 @@ const HomePage = () => {
   }, []);
 
   return (
-    <Fragment>
+    <>
       {error && <h2 className={style.error}>{error}</h2>}
        {!error && displayMovies.map((m) => (
         <Movie key={m.id} id={m.id} genre={m.genre} poster={m.poster} title={m.title} year={m.year} />
       ))}
-    </Fragment>
+    </>
   );
 };
 

@@ -1,9 +1,10 @@
 import React, { Fragment, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import useInput from "../../hooks/useInput";
 import AuthContext from "../../store/auth-context";
 import style from "./ChangePassword.module.scss";
-import axios from "axios";
 
 const ChangePassword = () => {
   const {

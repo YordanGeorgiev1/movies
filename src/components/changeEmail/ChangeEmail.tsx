@@ -1,9 +1,10 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { useContext, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 import useInput from "../../hooks/useInput";
 import style from "./ChangeEmail.module.scss";
-import axios from "axios";
 import AuthContext from "../../store/auth-context";
-import { useNavigate } from "react-router-dom";
 
 const ChangeEmail = () => {
   const {
@@ -49,7 +50,7 @@ const ChangeEmail = () => {
   };
 
   return (
-    <Fragment>
+    <>
       {error && <h2 className={style.requestError}>{error}</h2>}
       <form onSubmit={submitHandler} className={style.form}>
         <h2>New Email</h2>
@@ -63,7 +64,7 @@ const ChangeEmail = () => {
         {emailHasError && <p className={style.error}>Please enter valid email</p>}
         <button className={style.btn}>Change</button>
       </form>
-    </Fragment>
+    </>
   );
 };
 

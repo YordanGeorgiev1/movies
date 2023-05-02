@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 import useInput from "../../hooks/useInput";
 import AuthContext from "../../store/auth-context";
 import style from "./Login.module.scss";
-import axios from 'axios';
 
 const Login = () => {
   const {
@@ -48,17 +49,16 @@ const Login = () => {
     const userData = {
       email: enteredEmail,
       password: enteredPassword,
-      returnSecureToken: true
+      returnSecureToken: true,
     };
     setError(null);
-    axios.post(
-      'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBi5q3iwL2zYl2WUsGeHOQ3RcwbpfkOMUM',
-       userData)
+    axios
+      .post("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBi5q3iwL2zYl2WUsGeHOQ3RcwbpfkOMUM", userData)
       .then((res) => {
-        authCtx.login(res.data.idToken)
+        authCtx.login(res.data.idToken);
         resetEmailInput();
         resetPasswordInput();
-        navigate('/');
+        navigate("/");
       })
       .catch((error) => {
         setError(error.response.data.error.message);

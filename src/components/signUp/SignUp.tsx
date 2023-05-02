@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import style from "./SignUp.module.scss";
-import { useNavigate } from "react-router-dom";
-import useInput from "../../hooks/useInput";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
+import style from "./SignUp.module.scss";
+import useInput from "../../hooks/useInput";
 
 const SignUp = () => {
   const {

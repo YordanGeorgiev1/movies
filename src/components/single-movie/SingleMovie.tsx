@@ -1,8 +1,9 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios, { AxiosError } from "axios";
+
 import { MovieInterface } from "../../interfaces/models";
 import style from "./SingleMovie.module.scss";
-import axios, { AxiosError } from "axios";
 
 const SingleMovie = () => {
   const params = useParams();
@@ -16,7 +17,7 @@ const SingleMovie = () => {
         setError(null);
         const request = await axios.get("https://react-movies-8ac3c-default-rtdb.firebaseio.com/all-movies.json");
         const response = Object.values(request.data).flat() as MovieInterface[];
-        const singleMovie = response.filter((m) => m.id.toString() === params.movieId)[0] as MovieInterface;
+        const singleMovie = response.find((m) => m.id.toString() === params.movieId) as MovieInterface;
         setMovie(singleMovie);
         const stars = singleMovie.stars;
         if (stars) {
@@ -31,7 +32,7 @@ const SingleMovie = () => {
   }, [params]);
 
   return (
-    <Fragment>
+    <>
       {error && <h2 className={style.error}>{error}</h2>}
       {!error && (
         <div className={style.content}>
@@ -60,7 +61,7 @@ const SingleMovie = () => {
           </div>
         </div>
       )}
-    </Fragment>
+    </>
   );
 };
 

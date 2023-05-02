@@ -1,9 +1,10 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { MovieInterface } from "../../interfaces/models";
+import axios, { AxiosError } from 'axios';
+
 import Movie from "../movie/Movie";
 import style from './Movies.module.scss';
-import axios, { AxiosError } from 'axios';
+import { MovieInterface } from "../../interfaces/models";
 
 
 const Movies = () => {
@@ -28,7 +29,7 @@ const Movies = () => {
   }, [params]);
 
   return (
-    <Fragment>
+    <>
       <h2 className={style.heading}>{params.categoryId?.toUpperCase()}</h2>
       {error && <h2 className={style.error}>{error}</h2>}
       {!error && filteredMovies.map((m) => (
@@ -41,7 +42,7 @@ const Movies = () => {
           year={m.year}
         />
       ))}
-    </Fragment>
+    </>
   );
 };
 
